@@ -2,6 +2,7 @@ package TestPom;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -25,13 +26,15 @@ public class ContactTestJU {
 	public void test() {
 		
 		Home homeNavigation = new Home(driver);
-		Contact writeElements = new Contact(driver);
 		Contact scrollDown = new Contact (driver);
 		
 		homeNavigation.HomeNavigation();
 		scrollDown.scrollDown();
-		writeElements.writeElements("Axel", "abernal@qvision.com.co", 344657020,"QVision", "Bogotá", "Solicitud de servicio", "La presente es para poder aduirir un servicio de automatizacion" );
+		scrollDown.writeElements("Axel", "abernal@qvision.com.co", 344657020,"QVision", "Bogotá", "Solicitud de servicio", "La presente es para poder aduirir un servicio de automatizacion" );
 		
+	}
+	@After
+	public void close() {
 		driver.quit();
 	}
 
